@@ -1,4 +1,6 @@
-﻿namespace Dars2_1
+﻿using Dars2_1.Models;
+
+namespace Dars2_1
 {
     internal class Program
     {
@@ -6,6 +8,7 @@
         static void Main(string[] args)
         {
             #region class book
+            /*
             DataSeed();
 
             var books = GetExpensiveBooksThenMinPrice(5);
@@ -18,11 +21,23 @@
             }
             //var book = GetMaxPricedBook();
             //Console.WriteLine(book.Price);
+            */
             #endregion
+
+            #region Car class
+
+
+            #endregion
+
+
+
+
+
 
         }
 
         #region Class Book
+        /*
         static Book MaxPageCount()
         {
             Book book = Books[0];
@@ -36,7 +51,7 @@
             return book;
         }
 
-        static List<Book> MaxPageCountTow() 
+        static List<Book> MaxPageCountTow()
         {
             List<Book> result = new List<Book>();
             Book first = Books[0];
@@ -128,8 +143,16 @@
                 PageCount = 870
             });
         }
+        */
+        #endregion
+
+
+
+
+
+
+
+
+
     }
-    #endregion
-
-
 }
