@@ -14,8 +14,8 @@ public class Car
     // Created mashina qo'shilgan sana
     public DateTime Created { get; set; }
 
-    // Updated mashina ma'lumotlari yangilangan sana
-    public DateTime? Updated { get; set; }
+    // Updated mashina ma'lumotlari yangilangan sana (null)
+    public DateTime? Updated { get; set; } 
 
     // Make mashina ishlab chiqaruvchisi
     public string Make { get; set; }
