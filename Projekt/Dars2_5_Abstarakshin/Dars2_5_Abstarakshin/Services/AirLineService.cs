@@ -35,7 +35,7 @@ internal class AirLineService : IAirLine
     }
 
     //{U}
-    public bool UpdateAirLine(AirLine airLine)
+    public bool UpdateAirLine(Guid id,AirLine airLine)
     {
         /*
         var updateAirLine = AirLines.FirstOrDefault(c => c.AirLineId == airLine.AirLineId);
@@ -52,7 +52,7 @@ internal class AirLineService : IAirLine
 
         foreach (var airLinee in AirLines)
         {
-            if (airLinee.AirLineId == airLine.AirLineId)
+            if (airLinee.AirLineId == id)
             {
                 airLinee.Name = airLine.Name;
                 airLinee.Rating = airLine.Rating;

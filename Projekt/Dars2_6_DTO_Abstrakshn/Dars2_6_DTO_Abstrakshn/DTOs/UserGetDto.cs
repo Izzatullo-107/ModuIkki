@@ -13,7 +13,6 @@ public class UserGetDto
     public string LastName { get; set; }  // familiya
     public string FirstName { get; set; } 
     public string NickName { get; set; } 
-
     public string ChannelName { get; set; }    // kanal nomi
     public int Subscribers { get; set; }       // obunachilar soni
 

@@ -9,7 +9,6 @@ namespace Dars2_6_DTO_Abstrakshn.DTOs;
 
 public class UserCreatedDto
 {
-    public Guid UserId { get; set; }
     public string LastName { get; set; }  // familiya
     public string FirstName { get; set; } 
     public string NickName { get; set; }  

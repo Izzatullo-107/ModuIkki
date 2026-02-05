@@ -10,7 +10,7 @@ namespace Dars2_5_Abstarakshin.Services.Interfaces;
 internal interface IAirLine
 {
     public Guid AddAirLine(AirLine airLine);
-    public bool UpdateAirLine(AirLine airLine);
+    public bool UpdateAirLine(Guid id,AirLine airLine);
     public bool DeleteAirLine(Guid airLineId);
     public AirLine? GetAirLineById(Guid airLineId);
     public List<AirLine> GetAllAirLines();

@@ -59,7 +59,7 @@ public  class UserServiec:IUserService
     {
         var newUser= new YouTubeUser
         {
-            UserId = user.UserId,
+            UserId = Guid.NewGuid(),
             FirstName = user.FirstName,
             LastName = user.LastName,
             NickName = user.NickName,
@@ -71,7 +71,7 @@ public  class UserServiec:IUserService
             DislikesNumber=0
         };
         Users.Add(newUser);
-        return user.UserId;
+        return newUser.UserId;
 
     }
 
