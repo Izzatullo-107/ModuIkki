@@ -3,11 +3,14 @@
     public class UserChannel
     {
         public Guid ChannelId { get; set; }
+        public Guid UserId { get; set; }          //  user id'
         public string ChannelName { get; set; }    // kanal nomi
-        public string Description { get; set; }    // video davomiyligi
-        public DateTime CreatedDate { get; set; }
+        public string Description { get; set; }    // kanal tavsifi
+        public string Category { get; set; }       // kanal turi
         public int Subscribers { get; set; }       // obunachilar soni
-        public List<UserVideo> Videos { get; set; }
+        public DateTime CreatedDate { get; set; }  
+        public DateTime UpdatedDate { get; set; }  
+      
 
     }
 

@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <Folder Include="User\AppDBContext\" />
+    <Folder Include="User\DTO\VideoDto\" />
   </ItemGroup>
 
 </Project>
