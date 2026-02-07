@@ -18,16 +18,16 @@ public class ChRepo : IChRepo
     //{C}
     public Guid Add(UserChannel user)
     {
-        ReadUsersFromFile();
+        ReadChannelsFromFile();
         ChRepos.Add(user);
-        SaveUserToFile();
+        SaveChannelToFile();
         return user.ChannelId;
     }
 
     //{R}
     public UserChannel? GetById(Guid id)
     {
-        ReadUsersFromFile();
+        ReadChannelsFromFile();
         foreach (var channel in ChRepos)
         {
             if (channel.ChannelId == id)
@@ -39,26 +39,28 @@ public class ChRepo : IChRepo
     }
     public List<UserChannel> GetAll()
     {
-        ReadUsersFromFile();
+        ReadChannelsFromFile();
         return ChRepos;
     }
 
     //{U}
-    public bool Update(Guid id, UserChannel user)
+    public bool Update(Guid id, UserChannel userCh)
     {
-        ReadUsersFromFile();
-        var existingUser = GetById(id);
-        if (existingUser == null) return false;
+        ReadChannelsFromFile();
+        var existingChannel = GetById(id);
+        if (existingChannel == null) return false;
 
-        ChRepos.Remove(existingUser);
-        ChRepos.Add(user);
-        SaveUserToFile();
+        ChRepos.Remove(existingChannel);
+        ChRepos.Add(userCh);
+        SaveChannelToFile();
         return true;
     }
 
     //{D}
     public bool Delete(Guid id)
     {
+
+        ReadChannelsFromFile();
         foreach (var channel in ChRepos)
         {
             if (channel.ChannelId == id)
@@ -67,18 +69,19 @@ public class ChRepo : IChRepo
                 return true;
             }
         }
+        SaveChannelToFile();
         return false;
     }
 
  
     #region File
-    private void SaveUserToFile()
+    private void SaveChannelToFile()
     {
         var json = JsonSerializer.Serialize(ChRepos);
         File.WriteAllText(FilePath, json);
     }
 
-    private void ReadUsersFromFile()
+    private void ReadChannelsFromFile()
     {
         var json = File.ReadAllText(FilePath);
 

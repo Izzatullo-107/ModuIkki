@@ -1,12 +1,11 @@
 ﻿using User.Api.User.DTO.UserDto;
 using User.Api.User.Entiti;
-using User.Api.User.Repository;
 using User.Api.User.Repository.Interfaces;
 using User.Api.User.Repository.ServicesRepo;
 using User.Api.User.Services.Controler;
 using User.Api.User.Services.Interfes;
 
-namespace User.Api.User.Services
+namespace User.Api.User.Services.Service
 {
     public class UserService : IUserService
     {
@@ -76,12 +75,9 @@ namespace User.Api.User.Services
 
             return ToUserGetDto(u);
         }
-
         public List<UserGetDto> GetAllUsers()
         {
-
             var users = UserRepos.GetAll();
-
             return ToUserGetDtos(users);
         }
 
@@ -89,10 +85,13 @@ namespace User.Api.User.Services
         public bool UpdateUser(Guid userId, UserUpdateDto userUpdateDto)
         {
             var user = UserRepos.GetById(userId);
+            if (user == null) return false;
+
+            user.UserId = userId;
             user.FirstName = userUpdateDto.FirstName;
             user.LastName = userUpdateDto.LastName;
             user.NickName = userUpdateDto.NickName;
-            user.Password = PasswordControl.SavePassword(userUpdateDto.Password, DateTime.UtcNow);
+            user.Password = PasswordControl.SavePassword(userUpdateDto.Password, user.CreatedAt);
             user.UpdatedAt = DateTime.UtcNow;
             user.CreatedAt = user.CreatedAt;
             user.Position = userUpdateDto.Position;

@@ -7,9 +7,9 @@
         public string FirstName { get; set; }       // ism
         public string NickName { get; set; }        // tarmoqdagi nomi
         public string Password { get; set; }        // paroli
-        public string Position { get; set; }         // lavozmi
-        public DateTime CreatedAt { get; set; }      // yaratildi vaqti
-        public DateTime UpdatedAt { get; set; }      // yangilandi vaqti
+        public string Position { get; set; }        // lavozmi
+        public DateTime CreatedAt { get; set; }     // yaratildi vaqti
+        public DateTime UpdatedAt { get; set; }     // yangilandi vaqti
 
         //public string ChannelName { get; set; }     // kanal nomi
         //public int Subscribers { get; set; }        // obunachilar soni
