@@ -4,12 +4,12 @@ namespace User.Api.User.Services.Interfes
 {
     public interface IUserService
     {
-        public Guid AddUser(UserCreatedDto user);
-        public UserGetDto? GetUserById(Guid userId);// bitta userni id  boyicha olish
-        public List<UserGetDto> GetAllUsers();
-        public bool UpdateUser(Guid userId, UserUpdateDto userUpdateDto);
-        public bool DeleteUser(Guid userId);
-      
+        Guid AddUser(UserCreatedDto user);
+        UserGetDto? GetUserById(Guid userId);// bitta userni id  boyicha olish
+        List<UserGetDto> GetAllUsers();
+        bool UpdateUser(Guid userId, UserUpdateDto userUpdateDto);
+        bool DeleteUser(Guid userId);
+
 
         //public UserGetDto? GetUserNonChannel();      // kanal yoq user    
         //public UserGetDto? GetUserLikesMaxCount();      // max ni

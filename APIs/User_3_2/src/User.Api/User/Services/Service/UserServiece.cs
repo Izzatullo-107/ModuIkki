@@ -49,15 +49,14 @@ namespace User.Api.User.Services.Service
         //{C}
         public Guid AddUser(UserCreatedDto user)
         {
-
             var newUser = new YouTubeUser
-            {
-                UserId = Guid.NewGuid(),//
+            { 
+                UserId = Guid.NewGuid(),
                 FirstName = user.FirstName,
                 LastName = user.LastName,
                 NickName = NickNameControl.NickNameUnique(user.NickName),
-                CreatedAt = DateTime.UtcNow,//
-                UpdatedAt = DateTime.UtcNow,//
+                CreatedAt = DateTime.UtcNow,
+                UpdatedAt = DateTime.UtcNow,
                 Password = PasswordControl.SavePassword(user.Password, DateTime.UtcNow),
                 Position = user.Position
 
@@ -105,8 +104,7 @@ namespace User.Api.User.Services.Service
         {
             if (UserRepos.GetById(userId) == null) return false;
 
-            UserRepos.Delete(userId);
-            return true;
+            return UserRepos.Delete(userId); ;
 
         }
 

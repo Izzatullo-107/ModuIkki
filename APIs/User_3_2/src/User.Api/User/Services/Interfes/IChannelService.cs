@@ -4,9 +4,9 @@ namespace User.Api.User.Services.Interfes;
 
 public interface IChannelService
 {
-    public Guid AddCh(ChCreatedDto user);
-    public ChGetDto? GetChById(Guid userId);// bitta userni id  boyicha olish
-    public List<ChGetDto> GetAllChs();
-    public bool UpdateCh(Guid userId, ChUpdateDto userUpdateDto);
-    public bool DeleteCh(Guid userId);
+    Guid AddCh(ChCreatedDto user);
+    ChGetDto? GetChById(Guid userId);// bitta userni id  boyicha olish
+    List<ChGetDto> GetAllChs();
+    bool UpdateCh(Guid userId, ChUpdateDto userUpdateDto);
+    bool DeleteCh(Guid userId);
 }

@@ -7,12 +7,17 @@ namespace User.Api.User.Repository.ServicesRepo;
 public class ChRepo : IChRepo
 {
     private List<UserChannel> ChRepos;
+    private List<UserVideo> VideosRepo;
     private readonly string FilePath;
+    private readonly string FilePathV;
 
     public ChRepo()
     {
         FilePath = "D:\\Users\\DotNet\\ModuIkki\\APIs\\User_3_2\\src\\User.Api\\User\\AppDBContext\\Channel_DB.json";
+        FilePathV = "D:\\Users\\DotNet\\ModuIkki\\APIs\\User_3_2\\src\\User.Api\\User\\AppDBContext\\Video_DB.json";
+
         ChRepos = new List<UserChannel>();
+        VideosRepo = new List<UserVideo>();
     }
 
     //{C}
@@ -65,11 +70,22 @@ public class ChRepo : IChRepo
         {
             if (channel.ChannelId == id)
             {
+                foreach (var video in VideosRepo)
+                {
+                    if (video.ChannelId == id)
+                    {
+                        VideosRepo.Remove(video);
+                    }
+                }
+
                 ChRepos.Remove(channel);
+                SaveChannelToFile();
+                SaveVideoToFile();
+
                 return true;
             }
         }
-        SaveChannelToFile();
+       
         return false;
     }
 
@@ -92,6 +108,27 @@ public class ChRepo : IChRepo
         }
 
         ChRepos = JsonSerializer.Deserialize<List<UserChannel>>(json) ?? new List<UserChannel>();
+    }
+    #endregion
+
+    #region FileVideo
+    private void SaveVideoToFile()
+    {
+        var json = JsonSerializer.Serialize(VideosRepo);
+        File.WriteAllText(FilePathV, json);
+    }
+
+    private void ReadVideosFromFile()
+    {
+        var json = File.ReadAllText(FilePathV);
+
+        if (string.IsNullOrEmpty(json))
+        {
+            VideosRepo = new List<UserVideo>();
+            return;
+        }
+
+        VideosRepo = JsonSerializer.Deserialize<List<UserVideo>>(json) ?? new List<UserVideo>();
     }
     #endregion
 }
