@@ -1,12 +1,13 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using User.Api.User.DTO.ChannelDto;
 using User.Api.User.DTO.VideoDto;
 using User.Api.User.Services.Interfes;
 using User.Api.User.Services.Service;
 
 namespace User.Api.Controllers;
 
-[Route("api/video")]
+[Route("api/videos")]
 [ApiController]
 public class VideoController : ControllerBase
 {
@@ -17,33 +18,39 @@ public class VideoController : ControllerBase
         VideoService = new VideoService();
     }
 
-    [HttpPost("create")]
-    public Guid AddVideo(VideoCreatedDto video)
+    [HttpPost("add")]
+    public Guid AddVideo(VideoCreatedDto video, string token)
     {
-        return VideoService.AddVideo(video);
+        return VideoService.AddVideo(video, token);
     }
 
     [HttpGet("get-all")]
-    public List<VideoGetDto> GetAllVideos()
+    public List<VideoGetDto> GetAllVideos(string token)
     {
-        return VideoService.GetAllVideos();
+        return VideoService.GetAllVideos(token);
+    }
+
+    [HttpGet("get-all-by-admin")]
+    public List<VideoGetDto>? GetAllByAdmin(string token)
+    {
+        return VideoService.GetAllVideosByAdmins(token);
     }
 
     [HttpGet("get-by-id")]
-    public VideoGetDto? GetVideoById(Guid videoId)
+    public VideoGetDto? GetVideoById(Guid videoId, string token)
     {
-        return VideoService.GetVideoById(videoId);
+        return VideoService.GetVideoById(videoId, token);
     }
 
     [HttpPut("update")]
-    public bool UpdateVideo(Guid videoId, VideoUpdateDto videoUpdateDto)
+    public bool UpdateVideo(Guid videoId, VideoUpdateDto videoUpdateDto, string token)
     {
-        return VideoService.UpdateVideo(videoId, videoUpdateDto);
+        return VideoService.UpdateVideo(videoId, videoUpdateDto, token);
     }
 
     [HttpDelete("delete")]
-    public bool DeleteVideo(Guid videoId)
+    public bool DeleteVideo(Guid videoId, string token)
     {
-        return VideoService.DeleteVideo(videoId);
+        return VideoService.DeleteVideo(videoId, token);
     }
 }

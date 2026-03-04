@@ -5,46 +5,50 @@ using User.Api.User.Services.Interfes;
 using User.Api.User.Services.Service;
 
 namespace User.Api.Controllers;
-
-[Route("api/[controller]")]
+[Route("api/users")]
 [ApiController]
-public class UserController : ControllerBase
+public class UsersController : ControllerBase
 {
     private readonly IUserService UserService;
-
-    public UserController()
+    public UsersController()
     {
         UserService = new UserService();
     }
 
-
-    [HttpPost("create")]
-    public Guid  AddUser(UserCreatedDto user)
+    [HttpPost("add")]
+    public Guid AddUser(UserRegisterDto userRegisterDto)
     {
-        return UserService.AddUser(user);
+        return UserService.AddUser(userRegisterDto);
     }
 
     [HttpGet("get-all")]
-    public List<UserGetDto> GetAllUsers()
+    public List<UserGetDto>? GetAll(string token)
     {
-        return UserService.GetAllUsers();
-    }
-
-    [HttpGet("get-by-id")]
-    public UserGetDto? GetUserById(Guid userId)
-    {
-        return UserService.GetUserById(userId);
-    }
-
-    [HttpPut("update")]
-    public bool UpdateUser(Guid userId, UserUpdateDto userUpdateDto)
-    {
-        return UserService.UpdateUser(userId, userUpdateDto);
+        return UserService.GetAllUsers(token);
     }
 
     [HttpDelete("delete")]
-    public bool DeleteUser(Guid userId)
+    public bool DeleteUser(Guid userId, string token)
     {
-        return UserService.DeleteUser(userId);
+        return UserService.DeleteUser(userId, token);
+    }
+
+    [HttpDelete("delete-user-channel")]
+    public bool DeleteUserChannel(Guid channelId, string token)
+    {
+        return UserService.DeleteUserChannel(channelId, token);
+    }
+
+    [HttpPut("block")]
+    public bool BlockUser(Guid userId, string token)
+    {
+        return UserService.BlockUser(userId, token);
+    }
+
+    [HttpPut("change-role")]
+    public bool ChangeRole(Guid userId, string newRole, string token)
+    {
+        return UserService.ChangeRole(userId, newRole, token);
+
     }
 }

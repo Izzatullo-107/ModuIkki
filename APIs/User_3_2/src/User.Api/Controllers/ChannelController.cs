@@ -6,44 +6,49 @@ using User.Api.User.Services.Service;
 
 namespace User.Api.Controllers;
 
-[Route("api/channel")]
+[Route("api/channels")]
 [ApiController]
-public class ChannelController : ControllerBase
+public class ChannelsController : ControllerBase
 {
     private readonly IChannelService ChannelService;
-
-    public ChannelController()
+    public ChannelsController()
     {
         ChannelService = new ChannelService();
     }
 
-    [HttpPost("create")]
-    public Guid AddChannel(ChCreatedDto channel)
+    [HttpPost("add")]
+    public Guid AddChannel(ChCreatedDto channelCreateDto, string token)
     {
-        return ChannelService.AddCh(channel);
+        return ChannelService.AddChannel(channelCreateDto, token);
     }
 
     [HttpGet("get-all")]
-    public List<ChGetDto> GetAllChannels()
+    public List<ChGetDto> GetAll(string token)
     {
-        return ChannelService.GetAllChs();
+        return ChannelService.GetAllChannels(token);
+    }
+
+    [HttpGet("get-all-by-admin")]
+    public List<ChGetDto>? GetAllByAdmin(string token)
+    {
+        return ChannelService.GetAllChannelsByAdmin(token);
     }
 
     [HttpGet("get-by-id")]
-    public ChGetDto? GetChannelById(Guid channelId)
+    public List<ChGetDto>? GetById(Guid channelId, string token)
     {
-        return ChannelService.GetChById(channelId);
+        return ChannelService.GetChannelById(channelId, token);
     }
 
     [HttpPut("update")]
-    public bool UpdateChannel(Guid channelId, ChUpdateDto channelUpdateDto)
+    public bool Update(Guid channelId, ChUpdateDto channelUpdateDto, string token)
     {
-        return ChannelService.UpdateCh(channelId, channelUpdateDto);
+        return ChannelService.UpdateChannel(channelId, channelUpdateDto, token);
     }
 
     [HttpDelete("delete")]
-    public bool DeleteChannel(Guid channelId)
+    public bool Delete(Guid channelId, string token)
     {
-        return ChannelService.DeleteCh(channelId);
+        return ChannelService.DeleteChannel(channelId, token);
     }
 }
