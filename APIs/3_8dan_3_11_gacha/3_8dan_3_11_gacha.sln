@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3_9_Callekshin", "src\3_9_C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3_10_calleacshin", "src\3_10_calleacshin\3_10_calleacshin.csproj", "{A50200CD-04A4-4B05-B04D-D4B457E58F14}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication1", "src\WebApplication1\WebApplication1.csproj", "{4BEC8605-7C7B-4524-A249-8DF4749B25C2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +31,10 @@ Global
 		{A50200CD-04A4-4B05-B04D-D4B457E58F14}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A50200CD-04A4-4B05-B04D-D4B457E58F14}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A50200CD-04A4-4B05-B04D-D4B457E58F14}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4BEC8605-7C7B-4524-A249-8DF4749B25C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BEC8605-7C7B-4524-A249-8DF4749B25C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BEC8605-7C7B-4524-A249-8DF4749B25C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BEC8605-7C7B-4524-A249-8DF4749B25C2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -37,6 +43,7 @@ Global
 		{4FC1DD20-B2DC-4279-89F4-58031B3DFB7F} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{F0D6327A-8A80-404C-ADAE-0A0C30B10AF5} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{A50200CD-04A4-4B05-B04D-D4B457E58F14} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{4BEC8605-7C7B-4524-A249-8DF4749B25C2} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7D86FFA3-9C05-4C2C-A9EB-EC4926315457}

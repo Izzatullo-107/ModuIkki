@@ -1,5 +1,5 @@
 
-namespace Car.Server
+namespace Exam
 {
     public class Program
     {

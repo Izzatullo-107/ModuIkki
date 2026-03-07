@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace Car.Server.Controllers
+namespace Exam.Controllers
 {
     [ApiController]
     [Route("[controller]")]

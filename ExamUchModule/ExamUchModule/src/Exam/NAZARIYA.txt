@@ -1,0 +1,95 @@
+--- 1.
+
+value :
+value typelar o'zgaruvchilar ma'lumotning haqiqiy qiymatini o'zida saqlaydi. Ular xotiraning Stack 
+qismida saqlanadi, bularga kiradi( int, float, double, bool, char)  bitta value type o'zgaruvchini ikkinchisiga
+tenglashtirsak valuedan  nusxa olinadi
+va birinchisini o'zgartisak ikkinchisi o'zgarmaydi.
+
+reference(ref) :
+ref typelar o'zgaruvchilar ma'lumotning haqiqiy qiymatini o'zida saqlamaydi. Ular xotiraning hip 
+qismida saqlanadi, ref type balki uning xotiradagi manzilini (linkini) saqlaydi
+malumotning o'zi  hip xotirasida turadi bularga (stringBulder, class, string(faqat malumoti saqlanadi), array,
+interface, delegate, list<>, calleshnlar ham, )
+
+misol :
+
+value 
+int  a= 5;
+int  b= a;
+ 
+ va
+
+ a=15;
+
+ javob : a= 15, b= 5 bo;ladi
+
+ ref da esa 
+ list<int > ints = new List<int>() {2,3,4,5,6,7};
+
+ list <int > ints2 = ints;
+
+ va
+
+ ints2[0] = 10;
+
+ javob : ints{10,3,4,5,6,7}, ints2{10,3,4,5,6,7}
+ 
+
+ --- 2. 
+
+ Abstractin(abtr):
+
+ abtr bu qisqa aytganda mavhumlik yani ko'rsatimaslik 
+ abstract metd to'liq  tanasi yozilishi kerak abtr clasdan voris olganlar bunda tanasini yozish : Implement diyiladi
+
+ abtr 2 ba bo'linadi : interfeys va abstrak claslar
+
+ intrfeys claslar interfeys nomi bn ochiladi va to'liq mavhum bo'lgan clas hisoblanadi 
+ clasda metdni boshi yoziladi va tanasi uni impliment qilgan clasda yoziladi (implimemt qilgan clas yozishga majbur)
+ 
+ abtrakt claslar bular abstrakt kalit bn clas ochiladi va  clasda 50 - 100 % lik metdlar bo'lih mumkin va
+ to‘g‘ridan-to‘g‘ri obyekt olib bo‘lmaydi va metdlari statik kalti bn yaratiladi
+
+
+ --- 3.
+
+ Extention(ext):
+
+ bu yaratilgan statik metdlarga yoziladigan qo'shimcha metd
+ ular statik klasi ichida statik kalit so'zi bn yaratiladi va parametr dan oldin this 
+ so'zi qoyiladi va metd ichi yoziladi chaqirilganda berilgan parametr orqali chaqiliradi
+ bu mavjud klassning kodini o'zgartirmasdan va undan meros  olmasdan turib, 
+unga yangi metodlar qo'shish imkonini beruvchi C# funksiyasidir.
+
+ misollar:LINq dagi metlar(weher,select va h.k)
+ static clas a
+ {
+	public statik Nomi(this (tip) value)
+	{
+		return null;
+	}
+ }
+
+ chaqirish:
+
+ (tip).Nomi(value);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
